@@ -38,7 +38,7 @@ This directory contains the H3LIS100DL component drivers.
 
 ### First release
 
-- First official release
+- First official release [ref. DS v2.0]
 
 ##
 
