@@ -129,7 +129,7 @@ int32_t h3lis100dl_axis_x_data_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    ctrl_reg1.xen = val;
+    ctrl_reg1.xen = val & 0x01U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_CTRL_REG1,
                                (uint8_t *)&ctrl_reg1, 1);
   }
@@ -178,7 +178,7 @@ int32_t h3lis100dl_axis_y_data_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    ctrl_reg1.yen = val;
+    ctrl_reg1.yen = val & 0x01U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_CTRL_REG1,
                                (uint8_t *)&ctrl_reg1, 1);
   }
@@ -227,7 +227,7 @@ int32_t h3lis100dl_axis_z_data_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    ctrl_reg1.zen = val;
+    ctrl_reg1.zen = val & 0x01U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_CTRL_REG1,
                                (uint8_t *)&ctrl_reg1, 1);
   }
@@ -369,7 +369,7 @@ int32_t h3lis100dl_reference_mode_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg2.hpm = (uint8_t)val;
+    ctrl_reg2.hpm = (uint8_t)val & 0x03U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_CTRL_REG2,
                                (uint8_t *)&ctrl_reg2, 1);
   }
@@ -540,7 +540,7 @@ int32_t h3lis100dl_boot_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    ctrl_reg2.boot = val;
+    ctrl_reg2.boot = val & 0x01U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_CTRL_REG2,
                                (uint8_t *)&ctrl_reg2, 1);
   }
@@ -603,7 +603,7 @@ int32_t h3lis100dl_hp_bandwidth_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg2.hpcf = (uint8_t)val;
+    ctrl_reg2.hpcf = (uint8_t)val & 0x03U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_CTRL_REG2,
                                (uint8_t *)&ctrl_reg2, 1);
   }
@@ -834,7 +834,7 @@ int32_t h3lis100dl_spi_mode_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg4.sim = (uint8_t)val;
+    ctrl_reg4.sim = (uint8_t)val & 0x01U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_CTRL_REG4,
                                (uint8_t *)&ctrl_reg4, 1);
   }
@@ -910,7 +910,7 @@ int32_t h3lis100dl_pin_int1_route_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg3.i1_cfg = (uint8_t)val;
+    ctrl_reg3.i1_cfg = (uint8_t)val & 0x03U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_CTRL_REG3,
                                (uint8_t *)&ctrl_reg3, 1);
   }
@@ -982,7 +982,7 @@ int32_t h3lis100dl_int1_notification_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg3.lir1 = (uint8_t)val;
+    ctrl_reg3.lir1 = (uint8_t)val & 0x01U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_CTRL_REG3,
                                (uint8_t *)&ctrl_reg3, 1);
   }
@@ -1046,7 +1046,7 @@ int32_t h3lis100dl_pin_int2_route_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg3.i2_cfg = (uint8_t)val;
+    ctrl_reg3.i2_cfg = (uint8_t)val & 0x03U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_CTRL_REG3,
                                (uint8_t *)&ctrl_reg3, 1);
   }
@@ -1118,7 +1118,7 @@ int32_t h3lis100dl_int2_notification_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg3.lir2 = (uint8_t)val;
+    ctrl_reg3.lir2 = (uint8_t)val & 0x01U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_CTRL_REG3,
                                (uint8_t *)&ctrl_reg3, 1);
   }
@@ -1182,7 +1182,7 @@ int32_t h3lis100dl_pin_mode_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg3.pp_od = (uint8_t)val;
+    ctrl_reg3.pp_od = (uint8_t)val & 0x01U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_CTRL_REG3,
                                (uint8_t *)&ctrl_reg3, 1);
   }
@@ -1245,7 +1245,7 @@ int32_t h3lis100dl_pin_polarity_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg3.ihl = (uint8_t)val;
+    ctrl_reg3.ihl = (uint8_t)val & 0x01U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_CTRL_REG3,
                                (uint8_t *)&ctrl_reg3, 1);
   }
@@ -1381,7 +1381,7 @@ int32_t h3lis100dl_int1_on_threshold_mode_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    int1_cfg.aoi = (uint8_t) val;
+    int1_cfg.aoi = val & 0x01U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_INT1_CFG,
                                (uint8_t *)&int1_cfg, 1);
   }
@@ -1461,7 +1461,7 @@ int32_t h3lis100dl_int1_threshold_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    int1_ths.ths = val;
+    int1_ths.ths = val & 0x7FU;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_INT1_THS,
                                (uint8_t *)&int1_ths, 1);
   }
@@ -1509,7 +1509,7 @@ int32_t h3lis100dl_int1_dur_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    int1_duration.d = val;
+    int1_duration.d = val & 0x7FU;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_INT1_DURATION,
                                (uint8_t *)&int1_duration, 1);
   }
@@ -1618,7 +1618,7 @@ int32_t h3lis100dl_int2_on_threshold_mode_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    int2_cfg.aoi = (uint8_t) val;
+    int2_cfg.aoi = (uint8_t) val & 0x01U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_INT2_CFG,
                                (uint8_t *)&int2_cfg, 1);
   }
@@ -1698,7 +1698,7 @@ int32_t h3lis100dl_int2_threshold_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    int2_ths.ths = val;
+    int2_ths.ths = val & 0x7FU;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_INT2_THS,
                                (uint8_t *)&int2_ths, 1);
   }
@@ -1746,7 +1746,7 @@ int32_t h3lis100dl_int2_dur_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    int2_duration.d = val;
+    int2_duration.d = val & 0x7FU;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_INT2_DURATION,
                                (uint8_t *)&int2_duration, 1);
   }
@@ -1807,7 +1807,7 @@ int32_t h3lis100dl_wkup_to_sleep_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    ctrl_reg5.turnon = val;
+    ctrl_reg5.turnon = val & 0x03U;
     ret = h3lis100dl_write_reg(ctx, H3LIS100DL_CTRL_REG5,
                                (uint8_t *)&ctrl_reg5, 1);
   }
